@@ -30,13 +30,13 @@
 			<div class="col-sm-3 col-sm-offset-3 col-md-2 col-md-offset-5">
 				<ul class="social">
 					<li class="social__item">
-						<a href="<?php esc_url( 'https://www.facebook.com/akordmebli' ); ?>" class="social__link" target="_blank"><svg class="social__icon social__icon--fb"><use xlink:href="#icon-fb"></use></svg>Facebook</a>
+						<a href="<?php echo esc_url( 'https://www.facebook.com/akordmebli' ); ?>" class="social__link" target="_blank"><svg class="social__icon social__icon--fb"><use xlink:href="#icon-fb"></use></svg>Facebook</a>
 					</li>
 					<li class="social__item">
-						<a href="<?php esc_url( 'https://vk.com/akordmeb' ); ?>" class="social__link" target="_blank"><svg class="social__icon social__icon--vk"><use xlink:href="#icon-vk"></use></svg>VK</a>
+						<a href="<?php echo  esc_url( 'https://vk.com/akordmeb' ); ?>" class="social__link" target="_blank"><svg class="social__icon social__icon--vk"><use xlink:href="#icon-vk"></use></svg>VK</a>
 					</li>
 					<li class="social__item">
-						<a href="<?php esc_url( 'https://www.instagram.com/akord_mebli' ); ?>" class="social__link" target="_blank"><svg class="social__icon social__icon--inst"><use xlink:href="#icon-inst"></use></svg>Instagram</a>
+						<a href="<?php echo esc_url( 'https://www.instagram.com/akord_mebli' ); ?>" class="social__link" target="_blank"><svg class="social__icon social__icon--inst"><use xlink:href="#icon-inst"></use></svg>Instagram</a>
 					</li>
 				</ul>
 			</div>
