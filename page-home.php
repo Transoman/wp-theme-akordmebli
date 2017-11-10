@@ -41,12 +41,12 @@ get_header(); ?>
 								</div>
 
 								<div class="form-field">
-									<label for="email" class="form-label">Ваш e-mail</label>
+									<label for="email" class="form-label"><?php esc_html_e( 'Your e-mail', 'akordmebli' ); ?></label>
 									<input type="email" class="feedback-form__input form-control" name="email" id="email" required autocomplete="off">
 								</div>
 
 								<div class="form-field">
-									<label for="message" class="form-label">Ваше повідомлення</label>
+									<label for="message" class="form-label"><?php esc_html_e( 'Your message', 'akordmebli' ); ?></label>
 									<textarea name="message" id="message" class="feedback-form__textarea form-control" required></textarea>
 								</div>
 
