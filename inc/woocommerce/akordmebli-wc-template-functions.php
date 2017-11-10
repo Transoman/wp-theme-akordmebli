@@ -38,3 +38,15 @@ if ( ! function_exists( 'akordmebli_woocommerce_currency_symbol' ) ) {
 		return $currency_symbol;
 	}
 }
+
+if ( ! function_exists( 'akordmebli_loop_shop_per_page' ) ) {
+	/**
+	 * Output of products on page
+	 */
+	function akordmebli_loop_shop_per_page( $cols ) {
+		// $cols contains the current number of products per page based on the value stored on Options -> Reading
+		// Return the number of products you wanna show per page.
+		$cols = 12;
+		return $cols;
+	}
+}

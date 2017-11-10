@@ -31,3 +31,8 @@ add_action( 'init', 'akordmebli_custom_woocommerce_thumbnail' );
  * @see akordmebli_woocommerce_currency_symbol()
  */
 add_filter('woocommerce_currency_symbol', 'akordmebli_woocommerce_currency_symbol', 10, 2);
+
+/**
+ * @see akordmebli_loop_shop_per_page()
+ */
+add_filter( 'loop_shop_per_page', 'akordmebli_loop_shop_per_page', 20 );
