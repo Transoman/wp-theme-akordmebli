@@ -10,29 +10,6 @@ jQuery(document).ready(function($) {
 			loop : true
 	});
 
-	// Gallery products
-	// $('.images-slider').owlCarousel({
-	// 	// margin: 23,
-	// 	URLhashListener:true,
-	// 	items: 1,
-	// 	dots: false,
-	// 	nav: true,
-	// 	navText: [
-	// 		'<svg class="single-images-thumbnails__icon single-images-thumbnails__icon--prev"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#left-arrow"></use></svg>',
-	// 		'<svg class="single-images-thumbnails__icon single-images-thumbnails__icon--next"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#right-arrow"></use></svg>'
-	// 	]
-	// });
-	// // Gallery products thumbnails
-	// $('.single-images-thumbnails').owlCarousel({
-	// 	margin: 23,
-	// 	dots: false,
-	// 	nav: true,
-	// 	navText: [
-	// 		'<svg class="single-images-thumbnails__icon single-images-thumbnails__icon--prev"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#left-arrow"></use></svg>',
-	// 		'<svg class="single-images-thumbnails__icon single-images-thumbnails__icon--next"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#right-arrow"></use></svg>'
-	// 	]
-	// });
-
 	$('.images-slider').slick({
 		slidesToShow: 1,
 		slidesToScroll: 1,
@@ -267,29 +244,20 @@ jQuery(document).ready(function($) {
 		return false;
 	});
 
-	// Preloader
-	// $(window).on('load', function() {
-	// 	$('#loader-wrapp').remove();
-	// 	$('#loader-wrapp').delay(500).fadeTo(500, 0, function() {
-	// 		$(this).remove();
-	// 	});
-	// });
 });
 
-
-(function () {
-	var loader = document.getElementById('loader-wrapp');
-	window.onload = function () {
-		setInterval(function() {
-			loader.style.opacity = 0;
-			loader.remove();
-		}, 1000);
-		
-	}
-}());
-
-
-
+// Preloader
+	document.body.onload = function() {
+		var preloader = document.querySelector( '#loader-wrapp' );
+		setTimeout( function() {
+			if( !preloader.classList.contains('done') ) {
+				preloader.classList.add( 'done' );
+			}
+		}, 1000 );
+		setTimeout( function() {
+			preloader.remove();
+		}, 2000 );
+	};
 
 // Svg-sprite LocalStorage
 ;( function( window, document )
