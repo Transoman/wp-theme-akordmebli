@@ -24,8 +24,25 @@ jQuery(document).ready(function($) {
 		asNavFor: '.images-slider',
 		prevArrow: '<svg class="single-images-thumbnails__icon single-images-thumbnails__icon--prev"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#left-arrow"></use></svg>',
 		nextArrow: '<svg class="single-images-thumbnails__icon single-images-thumbnails__icon--next"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#right-arrow"></use></svg>',
-		focusOnSelect: true
+		focusOnSelect: true,
+		responsive: [
+		{
+			breakpoint: 600,
+			settings: {
+				slidesToShow: 2,
+				slidesToScroll: 2
+			}
+		},
+		{
+			breakpoint: 480,
+			settings: {
+				slidesToShow: 2,
+				slidesToScroll: 1
+			}
+		}
+	]
 	});
+
 	// Animation
 	$(".catalog__item").animated("fadeInUp");
 
@@ -40,7 +57,6 @@ jQuery(document).ready(function($) {
 				$(el).animated("fadeInLeft");
 			}
 		});
-
 
 	// Sticky header
 	$('.header').removeClass('stuck');
@@ -243,6 +259,33 @@ jQuery(document).ready(function($) {
 		});
 		return false;
 	});
+
+	// Calculator kitchen
+	var kitchenForm = $('.form-kitchen');
+	var submitBtn = $('.submit');
+	var result = 0;
+
+	$('.calculator-link').on( 'click', function(e) {
+		e.preventDefault();
+		$('.calculator-wrapp').slideToggle( 'slow' );
+	} );
+
+	submitBtn.on( 'click', function(e) {
+		e.preventDefault();
+
+		var kitchenWidth = parseInt( $('.form-kitchen__width').val() );
+		var kitchenType = parseInt( $('.form-kitchen__type option:checked').data('price') );
+
+		if ( kitchenWidth ) {
+			result = ( kitchenWidth / 100 ) * kitchenType;
+			result = result.toFixed();
+			$('.kitchen-result').fadeIn( 'slow' ).html( 'Приблизна вартість кухні = ' + result + ' грн' );
+			$('.kitchen-err').fadeOut( 'slow' );
+		}
+		else {
+			$('.kitchen-err').fadeIn( 'slow' );
+		}
+	} );
 
 });
 

@@ -36,15 +36,17 @@ if ( $attachment_ids && has_post_thumbnail() ) {
 	);
 
 	if ( has_post_thumbnail() ) {
-		$html  = '<div class="single-images-thumbnails__item" data-thumb="' . get_the_post_thumbnail_url( $post->ID, 'shop_thumbnail' ) . '">';
-		$html .= get_the_post_thumbnail( $post->ID, 'shop_single', $attributes );
+		$html  = '<div class="single-images-thumbnails__item">';
+		$html .= get_the_post_thumbnail( $post->ID, 'shop_thumbnail', $attributes );
 		$html .= '</div>';
 	} else {
 		$html  = '<div class="woocommerce-product-gallery__image--placeholder">';
 		$html .= sprintf( '<img src="%s" alt="%s" class="wp-post-image" />', esc_url( wc_placeholder_img_src() ), esc_html__( 'Awaiting product image', 'woocommerce' ) );
 		$html .= '</div>';
 	}
+
 	echo apply_filters( 'woocommerce_single_product_image_thumbnail_html', $html, get_post_thumbnail_id( $post->ID ) );
+
 	foreach ( $attachment_ids as $attachment_id ) {
 		$full_size_image = wp_get_attachment_image_src( $attachment_id, 'full' );
 		$thumbnail       = wp_get_attachment_image_src( $attachment_id, 'shop_thumbnail' );
@@ -57,8 +59,8 @@ if ( $attachment_ids && has_post_thumbnail() ) {
 			'data-large_image_height' => $full_size_image[2],
 		);
 
-		$html  = '<div class="single-images-thumbnails__item" data-thumb="' . esc_url( $thumbnail[0] ) . '">';
-		$html .= wp_get_attachment_image( $attachment_id, 'shop_single', false, $attributes );
+		$html  = '<div class="single-images-thumbnails__item">';
+		$html .= wp_get_attachment_image( $attachment_id, 'shop_thumbnail', false, $attributes );
 		$html .= '</div>';
 
 		echo apply_filters( 'woocommerce_single_product_image_thumbnail_html', $html, $attachment_id );
